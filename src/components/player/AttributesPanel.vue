@@ -18,15 +18,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .column {
-    float:left;
-  }
-  .column-left > :first-child {
-    margin-top: 30px;
-  }
-  .column-right > :first-child {
-    margin-top: 30px;
-  }
   .attribute {
     clear: both;
     width: 100%;

@@ -3,7 +3,7 @@
     <div class="attr" id="name">{{name}}</div>
     <div class="attr">{{rarity}}</div>
     <div class="attr">{{type}}</div>
-    <div class="attr">{{sub_type}}</div>
+    <div class="attr">{{subType}}</div>
   </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
     },
     rarity () { return ItemsManager.getRarity(this.item) },
     type () { return ItemsManager.getType(this.item) },
-    sub_type () { return ItemsManager.getSubType(this.item) },
+    subType () { return ItemsManager.getSubType(this.item) },
     name () { return this.item.name }
   }
 }

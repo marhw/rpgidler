@@ -1,17 +1,17 @@
 <template>
   <div>
-    <div class="column column-left">
+    <div class="column columnLeft">
       <item-frame :item="items[1]"></item-frame>
       <item-frame :item="items[2]"></item-frame>
       <item-frame :item="items[3]"></item-frame>
     </div>
-    <div class="column column-center">
+    <div class="column columnCenter">
       <item-frame :item="items[4]"></item-frame>
       <item-frame :item="items[5]"></item-frame>
       <item-frame :item="items[6]"></item-frame>
       <item-frame :item="items[7]"></item-frame>
     </div>
-    <div class="column column-right">
+    <div class="column columnRight">
       <item-frame :item="items[8]"></item-frame>
       <item-frame :item="items[9]"></item-frame>
       <item-frame :item="items[10]"></item-frame>
@@ -34,10 +34,10 @@
   .column {
     float:left;
   }
-  .column-left > :first-child {
+  .columnLeft > :first-child {
     margin-top: 30px;
   }
-  .column-right > :first-child {
+  .columnRight > :first-child {
     margin-top: 30px;
   }
 </style>

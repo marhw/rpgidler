@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="frame" @mouseover="show_popup()" @mouseout="hide_popup()">
+    <div class="frame" @mouseover="showPopup()" @mouseout="hidePopup()">
         <img class="icon" v-if="checkIcon" src="../../assets/icon.png">
     </div>
     <!-- <div class="frame" @click="toogle_popup()"></div> -->
-    <item-popup v-if="is_popup_visible" :item="item"><item-popup>
+    <item-popup v-if="isPopupVisible" :item="item"><item-popup>
     <!-- <div :is="item-popup" ></div> -->
   </div>
 </template>
@@ -14,12 +14,12 @@ import ItemPopup from './Popup'
 export default {
   props: ['item'],
   computed: {
-    is_popup_visible () { return this.is_hover && this.item },
+    isPopupVisible () { return this.is_hover && this.item },
     checkIcon () { return this.item && this.item.icon }
   },
   methods: {
-    show_popup () { this.is_hover = true },
-    hide_popup () { this.is_hover = false }
+    showPopup () { this.is_hover = true },
+    hidePopup () { this.is_hover = false }
   },
   components: {
     ItemPopup
