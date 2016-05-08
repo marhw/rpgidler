@@ -25,10 +25,6 @@
     props: ['items'],
     components: {
       ItemFrame
-    },
-    data () {
-      return {
-      }
     }
   }
 </script>

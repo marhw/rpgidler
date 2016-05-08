@@ -14,6 +14,11 @@ Items.setRarity = function (item, rarity) {
   return item
 }
 
+Items.setIcon = function (item, icon) {
+  item.icon = icon
+  return item
+}
+
 Items.getRarity = function (item) {
   return RARITES[item.rarity]
 }
@@ -48,7 +53,7 @@ Items.createEmptyItem = function () {
     attr: {},
     attrs: [],
     slots: {},
-    icon: 'icon.png'
+    icon: null
   }
 }
 

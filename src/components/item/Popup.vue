@@ -1,32 +1,27 @@
 <template>
-  <div class="frame" v-bind:style="frame_styles(item)">
-    <div class="attr" id="name">{{name(item)}}</div>
-    <div class="attr">{{rarity(item)}}</div>
-    <div class="attr">{{type(item)}}</div>
-    <div class="attr">{{sub_type(item)}}</div>
+  <div class="frame" v-bind:style="frameStyles">
+    <div class="attr" id="name">{{name}}</div>
+    <div class="attr">{{rarity}}</div>
+    <div class="attr">{{type}}</div>
+    <div class="attr">{{sub_type}}</div>
   </div>
 </template>
 
 <script>
-// import {RARITES_COLORS} from '../../helpers/items/Constants'
 let ItemsManager = require('../../helpers/items/Items')
 export default {
   props: ['item'],
-  methods: {
-    name (item) { return item.name },
-    rarity (item) { return ItemsManager.getRarity(item) },
-    type (item) { return ItemsManager.getType(item) },
-    sub_type (item) { return ItemsManager.getSubType(item) },
-    frame_styles (item) {
+  computed: {
+    frameStyles () {
       return {
-        color: ItemsManager.getRarityColors(item).light,
-        'border-color': ItemsManager.getRarityColors(item).dark
+        color: ItemsManager.getRarityColors(this.item).light,
+        'border-color': ItemsManager.getRarityColors(this.item).dark
       }
-    }
-  },
-  data () {
-    return {
-    }
+    },
+    rarity () { return ItemsManager.getRarity(this.item) },
+    type () { return ItemsManager.getType(this.item) },
+    sub_type () { return ItemsManager.getSubType(this.item) },
+    name () { return this.item.name }
   }
 }
 </script>

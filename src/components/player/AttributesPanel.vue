@@ -12,11 +12,7 @@
 
 <script>
   export default {
-    props: ['attributes'],
-    data () {
-      return {
-      }
-    }
+    props: ['attributes']
   }
 </script>
 

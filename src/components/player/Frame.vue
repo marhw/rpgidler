@@ -17,10 +17,6 @@
     components: {
       PlayerItemsPanel,
       PlayerAttributesPanel
-    },
-    data () {
-      return {
-      }
     }
   }
 </script>

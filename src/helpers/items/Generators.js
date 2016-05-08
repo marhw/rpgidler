@@ -4,6 +4,7 @@ let Items = require('./Items')
 export function GenerateTestItem () {
   let item = Items.createEmptyItem()
   item = Items.setName(item, NameCreator.createNameForWeapon(0))
+  item = Items.setIcon(item, 'icon.png')
   return item
 }
 

@@ -19,7 +19,6 @@ var store = {
         }
       },
       items: {
-        1: GenerateTestItem(),
         2: GenerateTestItem(),
         3: GenerateTestItem(),
         4: GenerateTestItem(),
