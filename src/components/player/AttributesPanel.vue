@@ -1,18 +1,28 @@
 <template>
-  <div>
-    <div class="attribute"><span class="attributeName">Name:</span><span class="attributeValue">{{attributes.name}}</span></div>
-    <div class="attribute"><span class="attributeName">Level:</span><span class="attributeValue">{{attributes.lvl}}</span></div>
-    <div class="attribute"><span class="attributeName">Class:</span><span class="attributeValue">{{attributes.class}}</span></div>
-    <div class="attribute"><span class="attributeName">Vitality:</span><span class="attributeValue">{{attributes.stats.vit}}</span></div>
-    <div class="attribute"><span class="attributeName">Strength:</span><span class="attributeValue">{{attributes.stats.str}}</span></div>
-    <div class="attribute"><span class="attributeName">Dexterity:</span><span class="attributeValue">{{attributes.stats.dex}}</span></div>
-    <div class="attribute"><span class="attributeName">Intellect:</span><span class="attributeValue">{{attributes.stats.int}}</span></div>
+  <h2>Attributes</h2>
+  <div v-for="attr in attributes">
+    <div class="attribute"><span class="attributeName">{{attr.name}}</span><span class="attributeValue">{{attr.value}}</span></div>
   </div>
 </template>
 
 <script>
+  var Player = require('../../store/Player.js')
+  var PLAYER_ATTRIBUTES = require('../../helpers/stats/Constants.js').PLAYER_ATTRIBUTES
+
   export default {
-    props: ['attributes']
+    computed: {
+      attributes () {
+        let attrs = []
+        Object.keys(Player.attributes).forEach(function (key, index) {
+          // console.log(PLAYER_ATTRIBUTES, Player.attributes)
+          let name = PLAYER_ATTRIBUTES[key]
+          let val = Player.attributes[key]
+          attrs.push({name: name, value: val})
+        })
+
+        return attrs
+      }
+    }
   }
 </script>
 

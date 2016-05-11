@@ -1,16 +1,22 @@
 <template>
   <div>
-    <player-frame :player-state="sharedState.playerState"></player-frame>
+    <div class="row">
+        <managing-panel></managing-panel>
+    </div>
+    <div class="row">
+        <player-frame></player-frame>
+    </div>
   </div>
 </template>
 
 <script>
 import PlayerFrame from './components/player/Frame'
+import ManagingPanel from './components/UI/managingPanel'
 
 export default {
-  props: ['sharedState', 'privateState'],
   components: {
-    PlayerFrame
+    PlayerFrame,
+    ManagingPanel
   },
   data () {
     return {
@@ -20,6 +26,13 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+ .row{
+     width: 100%;
+     float: left;
+     clear: both;
+ }
+ .row:first-child {
+     margin-bottom: 10px;
+ }
 </style>
