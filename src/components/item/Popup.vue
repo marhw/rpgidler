@@ -1,5 +1,5 @@
 <template>
-  <div class="frame" v-bind:style="frameStyles">
+  <div class="framepopup" v-bind:style="frameStyles">
     <div class="attr" id="name">{{name}}</div>
     <div class="attr">{{rarity}}</div>
     <div class="attr">{{type}}</div>
@@ -10,12 +10,14 @@
 <script>
 let ItemsManager = require('../../helpers/items/Items')
 export default {
-  props: ['item'],
+  props: ['item', 'positiont', 'positionl'],
   computed: {
     frameStyles () {
       return {
         color: ItemsManager.getRarityColors(this.item).light,
-        'border-color': ItemsManager.getRarityColors(this.item).dark
+        'border-color': ItemsManager.getRarityColors(this.item).dark,
+        left: this.positionl + 'px',
+        top: this.positiont + 'px'
       }
     },
     rarity () { return ItemsManager.getRarity(this.item) },
@@ -37,7 +39,8 @@ export default {
   float: left;
   clear: both;
 }
-.frame {
+.framepopup {
+  z-index: 99;
   padding: 20px;
   background: black;
   border: 2px solid gold;

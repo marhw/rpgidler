@@ -9,19 +9,24 @@
     <div class="itemPanel panel">
         <player-items-panel></player-items-panel>
     </div>
+    <div class="backpackPanel panel">
+        <player-backpack-panel></player-backpack-panel>
+    </div>
   </div>
 </template>
 
 <script>
-  import PlayerItemsPanel from './ItemsPanel'
-  import PlayerAttributesPanel from './AttributesPanel'
-  import PlayerSkillsPanel from './SkillsPanel'
+  import PlayerItemsPanel from './items/ItemsPanel'
+  import PlayerAttributesPanel from './attributes/AttributesPanel'
+  import PlayerSkillsPanel from './skills/SkillsPanel'
+  import PlayerBackpackPanel from './backpack/BackpackPanel'
 
   export default {
     components: {
       PlayerItemsPanel,
       PlayerAttributesPanel,
-      PlayerSkillsPanel
+      PlayerSkillsPanel,
+      PlayerBackpackPanel
     }
   }
 </script>

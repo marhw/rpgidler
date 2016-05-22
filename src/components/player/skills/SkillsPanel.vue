@@ -6,8 +6,8 @@
 </template>
 
 <script>
-  var Player = require('../../store/Player.js')
-  var PLAYER_SKILLS = require('../../helpers/stats/Constants.js').PLAYER_SKILLS
+  var Player = require('../../../store/Player.js')
+  var PLAYER_SKILLS = require('../../../helpers/stats/Constants.js').PLAYER_SKILLS
 
   export default {
     computed: {

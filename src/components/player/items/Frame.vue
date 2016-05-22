@@ -1,16 +1,15 @@
 <template>
   <div>
-    <div class="frame" @mouseover="showPopup()" @mouseout="hidePopup()">
-        <img class="icon" v-if="checkIcon" src="../../assets/icon.png">
+    <div class="frame" @mouseover="showPopup" @mouseout="hidePopup" ldraggable="true">
+        <img class="icon"  v-if="checkIcon"  src="../../../assets/icon.png">
     </div>
-    <!-- <div class="frame" @click="toogle_popup()"></div> -->
-    <item-popup v-if="isPopupVisible" :item="item"><item-popup>
+    <item-popup v-if="isPopupVisible" :item="item" :positiont="item_position_top" :positionl="item_position_left"><item-popup>
     <!-- <div :is="item-popup" ></div> -->
   </div>
 </template>
 
 <script>
-import ItemPopup from './Popup'
+import ItemPopup from '../../item/Popup'
 export default {
   props: ['item'],
   computed: {
@@ -26,7 +25,16 @@ export default {
   },
   data () {
     return {
-      is_hover: false
+      is_hover: false,
+      item_position_top: 0,
+      item_position_left: 0
+    }
+  },
+  ready: function () {
+    if (this.$el) {
+      var el = this.$el.getElementsByClassName('frame')[0]
+      this.item_position_top = el.offsetTop
+      this.item_position_left = el.offsetLeft + 50
     }
   }
 }
@@ -42,6 +50,7 @@ export default {
   border: 2px solid black;
   border-radius: 5px;
 }
+
 .expand-transition {
   transition: all .3s ease;
 }

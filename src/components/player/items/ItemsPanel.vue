@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2>Inventory</h2>
     <div class="column columnLeft">
       <item-frame :item="getSlot(1)"></item-frame>
       <item-frame :item="getSlot(2)"></item-frame>
@@ -20,8 +21,8 @@
 </template>
 
 <script>
-  var Player = require('../../store/Player.js')
-  import ItemFrame from '../item/Frame'
+  var Player = require('../../../store/Player.js')
+  import ItemFrame from './Frame'
   export default {
     props: ['items'],
     components: {

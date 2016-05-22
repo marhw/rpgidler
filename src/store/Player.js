@@ -24,6 +24,11 @@ let Player = {
     13: GenerateTestItem()
   },
   backpack: {
+    basic: { possible_slots: 10, items: {1: GenerateTestItem()} },
+    slot1: { possible_slots: 5, items: {1: GenerateTestItem()} },
+    slot2: { possible_slots: 5, items: {1: GenerateTestItem()} },
+    slot3: { possible_slots: 5, items: {1: GenerateTestItem()} },
+    slot4: { possible_slots: 5, items: {1: GenerateTestItem()} }
   },
   skills: {
     1: 10,

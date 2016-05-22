@@ -6,8 +6,8 @@
 </template>
 
 <script>
-  var Player = require('../../store/Player.js')
-  var PLAYER_ATTRIBUTES = require('../../helpers/stats/Constants.js').PLAYER_ATTRIBUTES
+  var Player = require('../../../store/Player.js')
+  var PLAYER_ATTRIBUTES = require('../../../helpers/stats/Constants.js').PLAYER_ATTRIBUTES
 
   export default {
     computed: {
