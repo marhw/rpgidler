@@ -1,4 +1,5 @@
-import {GenerateTestItem} from '../helpers/items/Generators'
+import {GenerateTestBackpack} from '../helpers/player/Backpack'
+import {GenerateTestEq} from '../helpers/player/Eq'
 let Player = {
   attributes: {
     1: 'ZENON',
@@ -9,26 +10,13 @@ let Player = {
     6: 10,
     7: 7
   },
-  slots: {
-    2: GenerateTestItem(),
-    3: GenerateTestItem(),
-    4: GenerateTestItem(),
-    5: GenerateTestItem(),
-    6: GenerateTestItem(),
-    7: GenerateTestItem(),
-    8: GenerateTestItem(),
-    9: GenerateTestItem(),
-    10: GenerateTestItem(),
-    11: GenerateTestItem(),
-    12: GenerateTestItem(),
-    13: GenerateTestItem()
-  },
+  slots: GenerateTestEq(),
   backpack: {
-    basic: { possible_slots: 10, items: {1: GenerateTestItem()} },
-    slot1: { possible_slots: 5, items: {1: GenerateTestItem()} },
-    slot2: { possible_slots: 5, items: {1: GenerateTestItem()} },
-    slot3: { possible_slots: 5, items: {1: GenerateTestItem()} },
-    slot4: { possible_slots: 5, items: {1: GenerateTestItem()} }
+    basic: GenerateTestBackpack(10),
+    slot1: GenerateTestBackpack(5),
+    slot2: GenerateTestBackpack(5),
+    slot3: GenerateTestBackpack(5),
+    slot4: GenerateTestBackpack(5)
   },
   skills: {
     1: 10,

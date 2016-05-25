@@ -14,8 +14,8 @@ Items.setRarity = function (item, rarity) {
   return item
 }
 
-Items.setIcon = function (item, icon) {
-  item.icon = icon
+Items.setIcon = function (item, x, y) {
+  item.icon = {x, y}
   return item
 }
 
@@ -44,6 +44,22 @@ Items.setType = function (item, type) {
   item.type = type
   return item
 }
+
+Items.setStackable = function (item, stackable) {
+  item.stackable = stackable
+  return item
+}
+
+Items.setAmount = function (item, amount) {
+  item.amount = amount
+  return item
+}
+
+Items.addAmount = function (item, amount) {
+  item.amount += amount
+  return item
+}
+
 Items.createEmptyItem = function () {
   return {
     name: 'No name',
@@ -53,7 +69,9 @@ Items.createEmptyItem = function () {
     attr: {},
     attrs: [],
     slots: {},
-    icon: null
+    icon: {x: 0, y: 0},
+    stackable: false,
+    amount: 1
   }
 }
 

@@ -1,8 +1,8 @@
 <template>
   <div class="backpackFrame">
     <div class="frame" @mouseover="showPopup()" @mouseout="hidePopup()" draggable="true">
-        <img class="icon"  v-if="checkIcon" src="../../../assets/icon.png">
-        <small class="amount" v-if="checkAmount">{{amount}}</small>
+        <item-icon v-if="item" :item="item"></item-icon>
+        <small class="amount" v-if="checkAmount"><span class="text_for_ammount">{{amount}}</spam><div class="background_for_ammount"></div></small>
     </div>
     <item-popup v-if="isPopupVisible" :item="item" :positiont="item_position_top" :positionl="item_position_left"><item-popup>
   </div>
@@ -10,20 +10,22 @@
 
 <script>
 import ItemPopup from '../../item/Popup'
+import ItemIcon from './icon'
 export default {
   props: ['item'],
   computed: {
     isPopupVisible () { return this.is_hover && this.item },
-    checkIcon () { return this.item && this.item.icon },
-    checkAmount () { return true }, // this.item && this.item.amount > 0 },
-    amount () { return 10 }
+    checkIcon () { return this.item.icon },
+    checkAmount () { return this.item && this.item.stackable },
+    amount () { return this.item.amount }
   },
   methods: {
     showPopup () { this.is_hover = true },
     hidePopup () { this.is_hover = false }
   },
   components: {
-    ItemPopup
+    ItemPopup,
+    ItemIcon
   },
   data () {
     return {
@@ -44,13 +46,36 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.text_for_ammount{
+  opacity: 1;
+  z-index: 5;
+  color: #ccc;
+}
+.background_for_ammount{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  float:left;
+  box-sizing: border-box;
+  /*border-radius: 5px;*/
+  border: 1px solid #666 ;
+  /*opacity: 0.8;*/
+  z-index: -1;
+}
 .amount{
-  color: red;
+  box-sizing: border-box;
   position: absolute;
   right: 3px;
   bottom: 3px;
-  background-color: black;
-  padding: 1px;
+  /*background-color: black;*/
+  /*font-weight: bold;*/
+  text-shadow: 0 0 5px black;
+  padding: 0 2px;
+  opacity: 0.8;
+  z-index: 2;
 }
 
 .backpackFrame{

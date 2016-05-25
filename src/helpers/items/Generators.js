@@ -4,7 +4,22 @@ let Items = require('./Items')
 export function GenerateTestItem () {
   let item = Items.createEmptyItem()
   item = Items.setName(item, NameCreator.createNameForWeapon(0))
-  item = Items.setIcon(item, 'icon.png')
+  item = Items.setIcon(item, Math.floor(Math.random() * 14), Math.floor(Math.random() * 30))
+  return item
+}
+
+export function GenerateBackpackTestItem () {
+  let item = GenerateTestItem()
+  if (Math.random() < 0.3) {
+    item = Items.setStackable(item, true)
+    item = Items.setAmount(item, Math.floor(Math.random() * 500))
+  }
+  return item
+}
+
+export function GenerateEQTestItem () {
+  let item = GenerateTestItem()
+  Items.setRarity(item, Math.floor(Math.random() * 6) + 1)
   return item
 }
 
